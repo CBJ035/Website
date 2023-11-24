@@ -8,9 +8,9 @@ app.use(express.json()); // for parsing application/json
 // MySQL connection setup (adjust with your credentials)
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'yourUsername',
-    password: 'yourPassword',
-    database: 'yourDatabase'
+    user: 'CBJADMIN',
+    password: 'fbpq7q3gg1pbd9+3g19373gdvcye882vfvdh',
+    database: 'CBJ_Database'
 });
 
 // Signup endpoint
@@ -42,3 +42,4 @@ app.post('/signup', async (req, res) => {
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
+
