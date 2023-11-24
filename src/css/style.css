@@ -196,6 +196,32 @@ footer {
 
 /*------------------------------------- Welcome message ---------------------------------------------*/
 
+/*------------------------------------- Contact message ---------------------------------------------*/
+
+.contact-message {
+    position: absolute; 
+    top: 30%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: 2em; 
+    color: #000000c0; 
+    opacity: 0; 
+    animation: fadeInWelcome 2s ease-in-out forwards; 
+}
+
+@keyframes fadeInWelcome {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5); 
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1); 
+    }
+}
+
+/*------------------------------------- Contact message ---------------------------------------------*/
+
 .memoji-image {
     position: absolute; /* Fix position relative to the viewport */
     left: 42%; /* Distance from the left edge of the viewport */
@@ -211,4 +237,78 @@ footer {
     top: 25px;
     width: 100px;
     background: transparent
+}
+
+
+/* ----------------------------------------------------------------- */
+
+
+#contact-form {
+    position: fixed;
+    top: 30%;
+    left: 14%;
+    max-width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+}
+
+
+#contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #989898;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#contact-form textarea {
+    height: 200px;
+    resize: none;
+}
+
+#contact-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+#contact-form button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #contact-form {
+        width: 90%;
+        margin: 20px auto;
+    }
 }
