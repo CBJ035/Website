@@ -3,8 +3,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #000000;
-    color: #00aaffc0;
+    background: #ffffff;
+    color: #000000c0;
     animation: fadeIn 1s ease-in-out;
 }
 
@@ -14,8 +14,8 @@ body {
 }
 
 header {
-    background: #000000; 
-    color: #00aaffc0; 
+    background: #ffffff; 
+    color: #000000c0; 
     padding: 10px 0;
     position: fixed;
     width: 100%;
@@ -37,7 +37,7 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #00aaffc0; 
+    color: #000000c0; 
     text-decoration: none;
     padding: 8px 15px;
     position: relative; 
@@ -49,7 +49,7 @@ header nav ul li a::after {
     position: absolute;
     width: 0; 
     height: 2px;
-    background: #fff;
+    background: #000000;
     transition: all 0.5s ease-in-out; 
     bottom: -5px; 
     left: 0;
@@ -65,16 +65,16 @@ header nav ul li a:hover::after, header nav ul li a:focus::after {
 
 
 header nav ul li a:hover, header nav ul li a:focus {
-    color: #6ecfff; 
+    color: #63cbff; 
 }
 
 
 section h2 {
-    color: #00aaffc0; 
+    color: #000000c0; 
 }
 
 a, .accent {
-    color: #00aaffc0; 
+    color: #000000c0; 
     transition: color 0.3s;
 }
 
@@ -83,8 +83,8 @@ a:hover, .accent:hover {
 }
 
 footer {
-    background: #1a1a1a; 
-    color: #00aaffc0;
+    background: #ffffff; 
+    color: #000000c0;
 }
 
 .content-container {
@@ -94,18 +94,18 @@ footer {
     gap: 30px;
 }
 
-.left-section {
+.section {
     flex: 1; 
 }
 
-.right-sections {
+/* .right-sections {
     flex: 1; 
     display: flex;
     flex-direction: column; 
     padding-top: -100px;
-}
+} */
 
-@keyframes circularOutline {
+/* @keyframes circularOutline {
     0% {
         border-top: 2px solid transparent;
         border-right: 2px solid transparent;
@@ -150,7 +150,7 @@ footer {
 }
 
 .box-content {
-    color: #ffffff;
+    color: #000000;
     text-align: center;
     
 }
@@ -168,7 +168,7 @@ footer {
 
 .main-content > section {
     width: 100%; 
-}
+} */
 
 /*------------------------------------- Welcome message ---------------------------------------------*/
 
@@ -178,7 +178,7 @@ footer {
     left: 50%; 
     transform: translate(-50%, -50%); 
     font-size: 2em; 
-    color: #00aaffc0; 
+    color: #000000c0; 
     opacity: 0; 
     animation: fadeInWelcome 2s ease-in-out forwards; 
 }
@@ -195,3 +195,20 @@ footer {
 }
 
 /*------------------------------------- Welcome message ---------------------------------------------*/
+
+.memoji-image {
+    position: absolute; /* Fix position relative to the viewport */
+    left: 42%; /* Distance from the left edge of the viewport */
+    top: 200px; /* Distance from the top, adjust as needed */
+    width: 200px; /* Adjust the size as needed */
+    background: transparent;
+    z-index: 1001; /* Ensures it's above other content */
+}
+
+.logo-image {
+    position: fixed;
+    left: 25px;
+    top: 25px;
+    width: 100px;
+    background: transparent
+}
