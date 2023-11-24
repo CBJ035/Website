@@ -1,44 +1,32 @@
-const express = require('express');
-const mysql = require('mysql');
-const bcrypt = require('bcrypt');
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('login-form');
 
-const app = express();
-app.use(express.json()); // for parsing application/json
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-// MySQL connection setup (adjust with your credentials)
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'yourUsername',
-    password: 'yourPassword',
-    database: 'yourDatabase'
-});
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
 
-// Signup endpoint
-app.post('/signup', async (req, res) => {
-    const { username, password, email } = req.body;
-
-    if (!username || !password) {
-        return res.status(400).send('Username and password are required');
-    }
-
-    try {
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        connection.query(
-            'INSERT INTO users (username, password, email) VALUES (?, ?, ?)',
-            [username, hashedPassword, email],
-            (error, results) => {
-                if (error) {
-                    return res.status(500).send('Error during registration');
-                }
-                res.status(201).send('User registered successfully');
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
             }
-        );
-    } catch (error) {
-        res.status(500).send('Server error');
-    }
-});
-
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+            return response.text();
+        })
+        .then(data => {
+            // Handle the response data
+            console.log(data);
+            alert(data); // You can replace this with more sophisticated handling
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
 });

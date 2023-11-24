@@ -46,6 +46,26 @@ app.post('/login', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+
+
+app.post('/signup', async (req, res) => {
+  const { username, password, email } = req.body;
+
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10); // Hashing the password
+    pool.query(
+      'INSERT INTO users (username, password, email) VALUES (?, ?, ?)',
+      [username, hashedPassword, email],
+      (error, results) => {
+        if (error) {
+          console.error(error);
+          return res.status(500).send('Server error during signup');
+        }
+        return res.status(201).send('User registered successfully');
+      }
+    );
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send('Server error');
+  }
 });
