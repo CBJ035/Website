@@ -223,9 +223,9 @@ footer {
 /*------------------------------------- Contact message ---------------------------------------------*/
 
 .memoji-image {
-    position: absolute; /* Fix position relative to the viewport */
-    left: 42%; /* Distance from the left edge of the viewport */
-    top: 200px; /* Distance from the top, adjust as needed */
+    position: fixed; /* Fix position relative to the viewport */
+    left: 44%; /* Distance from the left edge of the viewport */
+    top: 30%; /* Distance from the top, adjust as needed */
     width: 200px; /* Adjust the size as needed */
     background: transparent;
     z-index: 1001; /* Ensures it's above other content */
@@ -246,7 +246,7 @@ footer {
 #contact-form {
     position: fixed;
     top: 30%;
-    left: 14%;
+    left: 25%;
     max-width: 80%;
     margin: 40px auto;
     padding: 20px;
